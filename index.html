@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>To Do: AngluarJS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body ng-contoller="TodoController">
+  <div id="main-container">
+    <div id="to-do-box">
+      <h1>To Do List:</h1>
+      <h2>Get it done son!</h2>
+      <input type="text" ng-model="search" placeholder="Filter your To Do items here">
+      <ul id="to-do-list">
+        <li ng-repeat="item in todoList | filter:search">{{item.task}} - {{item.completed}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <section ng-controller="MyCtrl">
+    <h1>Build beautiful things</h1>
+    <input type="text" ng-model="message"/>
+    <p class="red">You typed: {{message}}</p>
+  </section> -->
+
+  <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
+  <script src="app.module.js"></script>
+  <script src="app.controller.js"></script>
+</body>
+</html>
+
+<!--
+  User Stories/build specs:
+  1. Every Angular component must be in a separate script file.
+    2. Must include a module called “todoApp”.
+    3. Must include a controller called “TodoController.”
+    4. The controller must add an array of sample todo objects to the view model. Each todo
+    object has “task” (string) and “completed” (boolean). Include a mix of complete and
+    incomplete items.
+  5. The ngRepeat directive must be used.
+  6. The ngClass directive must be used to add a “completed” class for completed todos.
+  7. The ngIf directive must be used to remove the button “complete” button for
+  completed todos.
+  8. “x” buttons, “complete” buttons, the two inputs, and the “Add” button are all
+  non-functional for now. Add them to the HTML and style them. We will make them work
+  in the next lab.
+
+-->

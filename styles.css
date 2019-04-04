@@ -2,7 +2,13 @@
     --bg-pink: #FF3C64;
     --hot-pink: #FF4DB3;
 }
+*{
+    font-family: 'Nunito', sans-serif;
+}
 body{
+    background-image: url("https://us.123rf.com/450wm/danlersk/danlersk1801/danlersk180100235/93756986-simple-striped-background-black-and-yellow-vector-pattern.jpg?ver=6");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -12,7 +18,7 @@ body{
     justify-content: center;
 }
 #main-container {
-    background-color: var(--bg-pink);
+    background-image: linear-gradient(to right, var(--hot-pink), var(--bg-pink));
     display: flex;
     justify-self: center;
     align-self: center;
@@ -20,6 +26,7 @@ body{
     align-content:center;
     width: 500px;
     height: 500px;
+    border-radius: 10px;
   }
 #to-do-box{
     background-color: white;
@@ -34,15 +41,66 @@ body{
     height: auto;
     width: auto;
     padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
-.to-do-list{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-content: flex-start;
-    align-items: flex-start;
-}
+    h1{
+
+    }
+    h2{
+    
+    }
+    #filter{
+    
+    }
+    .input-field{
+        display: flex;
+        text-align: center;
+        width: 100%;
+        border-radius: 10px;
+        color: var(--hot-pink);
+    }
+    .to-do-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+        .list-item{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+            .complete-button{
+                display: flex;
+                color: var(--hot-pink);
+                border: solid 1px var(--hot-pink);
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+            .x{
+                display: flex;
+                align-self: flex-end;
+            }
+    #add-to-to-do{
+ 
+    }
+    #add-button{
+        display: flex;
+        background-color: var(--hot-pink);
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        align-content: center;
+        justify-content: center;
+        font-size: 1.5em;
+        color:white;
+        margin-top: 10px;
+    }
 .completed{
     text-decoration: line-through;
 }

@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 // angular
 //   .module("App") // this was set-up in the app.module.js - like declaring/initializing?
 //   .controller("TodoController", TodoController());

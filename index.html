@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="todoApp">
+<html lang="en" ng-app="TodoApp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +10,24 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="main-container" ng-contoller="TodoController">
+  <div id="main-container" ng-contoller="TodoController as $ctrl">
     <div id="to-do-box">
       <h1>Honey-Do List:</h1>
       <h2>would you kindly...</h2>
       <input class="input-field" id="filter" type="text" ng-model="search" placeholder="Filter Your To-Do List">
       <ul id="to-do-list">
-        <li class="list-item" ng-repeat="item in todoList | filter:search">
-          <div class="complete-button"></div>
-          {{item.task}} - {{item.completed}} <i class="material-icons x">close</i>
+        <li class="list-item" ng-repeat="item in $ctrl.TodoList | filter:search">
+          <div class="complete-button">Finished!</div>
+          {{item.task}} {{item.completed}} <i class="material-icons x">close</i>
         </li>
       </ul>
       <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also...">
       <input id="add-button" type="button" placeholder="Add">
     </div>
   </div>
-
-  <!-- <section ng-controller="MyCtrl">
-    <h1>Build beautiful things</h1>
-    <input type="text" ng-model="message"/>
-    <p class="red">You typed: {{message}}</p>
-  </section> -->
-
   <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
-  <script src="App.module.js"></script>
-  <script src="App.controller.js"></script>
+  <script src="app.module.js"></script>
+  <script src="app.controller.js"></script>
 </body>
 </html>
 
@@ -54,4 +47,21 @@
   non-functional for now. Add them to the HTML and style them. We will make them work
   in the next lab.
 
+  What does the application do?
+  1. The user can add items to the bottom of the list. -push to array on controller, ng-click on button, or ng-submit on form - calls function add2todo.
+  2. The user can filter the list. - got this, ng-model & filter on the ng-repeated list items
+  3. The user can remove items from the list, by clicking the “x”. ng-click, remove/delete from array?
+  4. The user can mark items complete by clicking the “complete” button. ng-click - class strikethrough
+
+  Build Specifications:
+  1. Submitting the form calls a function named addTask that adds a new todo to the array
+  with the complete property set to false.
+  2. Clicking the “x” on an item executes a function named removeTask that removes that
+  item from the array.
+  3. Clicking the “complete” button executes a function named completeTask that sets the
+  task’s completed property to true.
+  4. The text input at the top is for filtering. Typing into the filter text input uses an Angular
+  filter to filter the items shown.
+
+  Bonus: Give users the ability to edit the text of a todo.
 -->

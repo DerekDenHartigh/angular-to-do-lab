@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>To Do: AngluarJS</title>
+  <link rel="stylesheet" href="CSS Reset.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="main-container" ng-contoller="TodoController as $ctrl">
+  <div id="main-container" ng-controller="TodoController as $ctrl">
     <div id="to-do-box">
-      <h1>Honey-Do List:</h1>
-      <h2>would you kindly...</h2>
+      <h1 id="h1">Honey-Do List:</h1>
+      <h2 id="h1">would you kindly...</h2>
       <input class="input-field" id="filter" type="text" ng-model="search" placeholder="Filter Your To-Do List">
       <ul id="to-do-list">
         <li class="list-item" ng-repeat="item in $ctrl.TodoList | filter:search">
           <div class="complete-button">Finished!</div>
-          {{item.task}} {{item.completed}} <i class="material-icons x">close</i>
+          <span class="task">{{item.task}}</span><i class="material-icons x">close</i>
         </li>
       </ul>
       <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also...">
-      <input id="add-button" type="button" placeholder="Add">
+      <input id="add-button" type="button" value ="Add">
     </div>
   </div>
   <script src="https://code.angularjs.org/1.7.8/angular.js"></script>

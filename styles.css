@@ -122,7 +122,7 @@ body{
                 justify-self: flex-end;
                 margin-left: 10px;
             }
-            .x:hover, .complete-button:hover{
+            .x:hover, .complete-button:hover, #add-button:hover{
                 font-weight: bolder;
                 cursor: pointer;
                 background-color: yellow;
@@ -130,6 +130,11 @@ body{
                 border: solid black 1px;
                 color: black;
             }
+#add-form{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
     #add-to-to-do{
  
     }
@@ -144,6 +149,7 @@ body{
         font-size: 1.5em;
         color:white;
         margin-top: 10px;
+        border-radius: 10px;
     }
 .completed{
     text-decoration: line-through;

@@ -10,22 +10,26 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body ng-cloak>
   <div id="main-container" ng-controller="TodoController as $ctrl">
-    <div id="to-do-box">
+    <div id="to-do-box" >
       <h1 id="h1">Honey-Do List:</h1>
       <h2 id="h1">would you kindly...</h2>
       <input class="input-field" id="filter" type="text" ng-model="search" placeholder="Filter Your To-Do List">
       <ul id="to-do-list">
         <li class="list-item" ng-repeat="item in $ctrl.TodoList | filter:search">
-          <div class="complete-button">Finished!</div>
-          <span class="task">{{item.task}}</span><i class="material-icons x">close</i>
+          <div class="complete-button" ng-click="item.completed=!item.completed" ng-if="!item.completed">Finished!</div>
+          <span class="task" ng-model="listItem" ng-class="{'completed':item.completed===true}">{{item.task}}</span>
+          <i class="material-icons x" ng-click="removeItem()">close</i>
         </li>
       </ul>
-      <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also...">
-      <input id="add-button" type="button" value ="Add">
+    <form id="add-form" ng-submit="$ctrl.addTask()">
+      <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also..." ng-model="newTask">
+      <input id="add-button" type="submit" value ="Add">
+    </form>
     </div>
   </div>
+
   <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
   <script src="app.module.js"></script>
   <script src="app.controller.js"></script>
@@ -34,25 +38,29 @@
 
 <!--
   User Stories/build specs:
-  1. Every Angular component must be in a separate script file.
+    1. Every Angular component must be in a separate script file.
     2. Must include a module called “todoApp”.
     3. Must include a controller called “TodoController.”
     4. The controller must add an array of sample todo objects to the view model. Each todo
     object has “task” (string) and “completed” (boolean). Include a mix of complete and
     incomplete items.
-  5. The ngRepeat directive must be used.
-  6. The ngClass directive must be used to add a “completed” class for completed todos.
-  7. The ngIf directive must be used to remove the button “complete” button for
-  completed todos.
-  8. “x” buttons, “complete” buttons, the two inputs, and the “Add” button are all
-  non-functional for now. Add them to the HTML and style them. We will make them work
-  in the next lab.
+    5. The ngRepeat directive must be used.
+    6. The ngClass directive must be used to add a “completed” class for completed todos.
+    7. The ngIf directive must be used to remove the button “complete” button for
+    completed todos.
+    8. “x” buttons, “complete” buttons, the two inputs, and the “Add” button are all
+    non-functional for now. Add them to the HTML and style them. We will make them work
+    in the next lab.
 
   What does the application do?
-  1. The user can add items to the bottom of the list. -push to array on controller, ng-click on button, or ng-submit on form - calls function add2todo.
-  2. The user can filter the list. - got this, ng-model & filter on the ng-repeated list items
-  3. The user can remove items from the list, by clicking the “x”. ng-click, remove/delete from array?
-  4. The user can mark items complete by clicking the “complete” button. ng-click - class strikethrough
+  1. The user can add items to the bottom of the list. 
+    -push to array on controller, ng-click on button, or ng-submit on form
+  2. The user can filter the list. 
+    - got this, ng-model & filter on the ng-repeated list items
+  3. The user can remove items from the list, by clicking the “x”. 
+    ng-click, remove/delete from array?
+    4. The user can mark items complete by clicking the “complete” button. 
+    ng-click - class strikethrough
 
   Build Specifications:
   1. Submitting the form calls a function named addTask that adds a new todo to the array

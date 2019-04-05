@@ -3,12 +3,20 @@
 function TodoController() { 
   const controller = this;
   controller.TodoList = [
-    {task:"Wake Up!", completed: true},
-    {task:"Grab your brush and put a little makeup!", completed: true},
+    {task:"Wake Up!", completed: false},
+    {task:"Grab your brush and put a little makeup!", completed: false},
     {task:"Hide the scars to fade away the shakeup!", completed: false},
     {task:"Grab your keys off the table!", completed: false},
-    {task:"Create another fable!", completed: true}
+    {task:"Create another fable!", completed: false}
   ];
+  controller.addTask = function(){
+    controller.TodoList.push({task: this.newTask, completed: false});
+  };
+
+  controller.removeItem = function(item){
+    controller.item.splice();
+  };
+
 };
 
 angular

@@ -18,16 +18,15 @@
       <input class="input-field" id="filter" type="text" ng-model="search" placeholder="Filter Your To-Do List">
       <ul id="to-do-list">
         <li class="list-item" ng-repeat="item in $ctrl.TodoList | filter:search">
-          <div class="complete-button" ng-click="item.completed=!item.completed" ng-if="!item.completed">Finished!</div>
+          <!-- <div class="complete-button" ng-click="item.completed=!item.completed" ng-if="!item.completed">Finished!</div>  this works but isn't in the specs -->
+          <div class="complete-button" ng-click="completeTask(item)" ng-if="!item.completed">Finished!</div>
           <span class="task" ng-model="listItem" ng-class="{'completed':item.completed===true}">{{item.task}}</span>
-          <i class="material-icons x" ng-click="$ctrl.removeItem()">close</i>
+          <i class="material-icons">edit</i>
+          <i class="material-icons" ng-click="$ctrl.removeItem(item)">close</i>
         </li>
       </ul>
-    <!-- <form id="add-form" ng-submit="$ctrl.addTask()"> -->
       <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also..." ng-model="newTask">
       <button id="add-button" type="submit" ng-click="$ctrl.addTask(newTask)">Add 2 To Do</button>
-      <!-- <input id="add-button" type="submit" value ="Add 2 To Do" ng-model="newTask"> -->
-    <!-- </form> -->
     </div>
   </div>
 
@@ -54,24 +53,24 @@
     in the next lab.
 
   What does the application do?
-  1. The user can add items to the bottom of the list. 
-    -push to array on controller, ng-click on button, or ng-submit on form
-  2. The user can filter the list. 
-    - got this, ng-model & filter on the ng-repeated list items
-  3. The user can remove items from the list, by clicking the “x”. 
-    ng-click, remove/delete from array?
+    1. The user can add items to the bottom of the list. 
+      -push to array on controller, ng-click on button, or ng-submit on form
+    2. The user can filter the list. 
+      - got this, ng-model & filter on the ng-repeated list items
+    3. The user can remove items from the list, by clicking the “x”. 
+      ng-click, remove/delete from array?
     4. The user can mark items complete by clicking the “complete” button. 
     ng-click - class strikethrough
 
   Build Specifications:
-  1. Submitting the form calls a function named addTask that adds a new todo to the array
-  with the complete property set to false.
+    1. Submitting the form calls a function named addTask that adds a new todo to the array
+    with the complete property set to false.
   2. Clicking the “x” on an item executes a function named removeTask that removes that
   item from the array.
   3. Clicking the “complete” button executes a function named completeTask that sets the
   task’s completed property to true.
-  4. The text input at the top is for filtering. Typing into the filter text input uses an Angular
-  filter to filter the items shown.
+    4. The text input at the top is for filtering. Typing into the filter text input uses an Angular
+    filter to filter the items shown.
 
   Bonus: Give users the ability to edit the text of a todo.
 -->

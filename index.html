@@ -20,13 +20,14 @@
         <li class="list-item" ng-repeat="item in $ctrl.TodoList | filter:search">
           <div class="complete-button" ng-click="item.completed=!item.completed" ng-if="!item.completed">Finished!</div>
           <span class="task" ng-model="listItem" ng-class="{'completed':item.completed===true}">{{item.task}}</span>
-          <i class="material-icons x" ng-click="removeItem()">close</i>
+          <i class="material-icons x" ng-click="$ctrl.removeItem()">close</i>
         </li>
       </ul>
-    <form id="add-form" ng-submit="$ctrl.addTask()">
+    <!-- <form id="add-form" ng-submit="$ctrl.addTask()"> -->
       <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also..." ng-model="newTask">
-      <input id="add-button" type="submit" value ="Add" ng-model="newTask">
-    </form>
+      <button id="add-button" type="submit" ng-click="$ctrl.addTask(newTask)">Add 2 To Do</button>
+      <!-- <input id="add-button" type="submit" value ="Add 2 To Do" ng-model="newTask"> -->
+    <!-- </form> -->
     </div>
   </div>
 

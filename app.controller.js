@@ -10,12 +10,12 @@ function TodoController() {
     {task:"Create another fable!", completed: false}
   ];
 
-  controller.addTask = function(){
+  controller.addTask = function(newTask){
     controller.TodoList.push({task: newTask, completed: false});
   };
 
-  controller.removeItem = function(item){
-    controller.TodoList.splice(item);
+  controller.removeItem = function(){
+    controller.TodoList.splice(this.item, 1);
   };
 
 };

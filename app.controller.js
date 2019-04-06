@@ -9,12 +9,13 @@ function TodoController() {
     {task:"Grab your keys off the table!", completed: false},
     {task:"Create another fable!", completed: false}
   ];
+
   controller.addTask = function(){
-    controller.TodoList.push({task: this.newTask, completed: false});
+    controller.TodoList.push({task: newTask, completed: false});
   };
 
   controller.removeItem = function(item){
-    controller.item.splice();
+    controller.TodoList.splice(item);
   };
 
 };

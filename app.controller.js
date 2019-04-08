@@ -21,7 +21,7 @@ function TodoController() {
 
   controller.removeItem = function(item){
     // 1st attempt - this only removes the first item in the array
-      // controller.TodoList.splice(this.item, 1); 
+      // controller.TodoList.splice(item, 1); 
 
     // 2nd attempt - also only removes 1st array item..
       // let elementPos = controller.TodoList.map(function(item) {return item.task; }).indexOf(task);

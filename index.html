@@ -21,8 +21,13 @@
           <!-- <div class="complete-button" ng-click="item.completed=!item.completed" ng-if="!item.completed">Finished!</div>  this works but isn't in the specs -->
           <div class="complete-button" ng-click="$ctrl.completeTask(item)" ng-if="!item.completed">Finished!</div>
           <span class="task" ng-model="listItem" ng-class="{'completed':item.completed===true}">{{item.task}}</span>
-          <i class="material-icons edit" ng-click=$ctrl.editItem(item)>edit</i>
+          <i class="material-icons edit" ng-click="$ctrl.toggle=true">edit</i>
           <i class="material-icons x" ng-click="$ctrl.removeItem(item)">close</i>
+          
+          <div id="pop-up-edit" ng-if="$ctrl.toggle">
+            What you meant was: <input ng-model="taskEdit" class="input-field" id="edit-field">
+            <button type="submit" id="change-it-button" ng-click="$ctrl.editItem(item, taskEdit)">Change it!</button>
+          </div>
         </li>
       </ul>
       <!-- <button id="add-button" type="submit" ng-click="$ctrl.addTask(newTask)">Add 2 To Do</button> again, this works, but doesn't use a form... -->
@@ -31,6 +36,8 @@
       <input id="add-to-to-do" class="input-field" type="text" placeholder="Could you also..." ng-model="newTask">
       <button id="add-button" type="submit" ng-click="$ctrl.addTask(newTask)">Add 2 To Do</button>
     </form>
+
+    <div id="plexi-glass" ng-if="$ctrl.toggle"></div>
 
     </div>
   </div>

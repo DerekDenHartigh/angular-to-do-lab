@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body ng-cloak>
-  <div id="main-container" ng-controller="TodoController as $ctrl">
+  <main id="main-container" ng-controller="TodoController as $ctrl">
     <div id="to-do-box" >
       <h1 id="h1">Honey-Do List:</h1>
       <h2 id="h1">would you kindly...</h2>
@@ -41,8 +41,12 @@
     </form>
 
     </div>
-  </div>
+  </main>
 
+  <todo-list></todo-list>
+  <todo-filter></todo-filter>
+  <todo-tasks></todo-tasks>
+  <todo-add></todo-add>
   <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
   <script src="app.module.js"></script>
   <script src="app.controller.js"></script>

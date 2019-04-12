@@ -72,7 +72,8 @@ body{
         font-size: 1.5em;
     }
     #filter{
-    
+        display: flex;
+        width: 100%
     }
     .input-field{
         display: flex;
@@ -159,7 +160,8 @@ body{
     flex-direction: column;
 }
     #add-to-to-do{
- 
+        display: flex;
+        width: 100%
     }
     #add-button{
         display: flex;
@@ -242,3 +244,15 @@ body{
         border: solid black 1px;
         border-radius: 10px;
     }
+    todo-add{
+        display: flex;
+        width: 100%
+    }
+    todo-filter{
+        display: flex;
+        width: 100%;
+    }
+
+    /*
+    needed to add this because the module elements disrupt the original flex-styling, unneccessary wrappers, could use replace directive in future?
+    */

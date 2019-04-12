@@ -32,11 +32,8 @@ function TodoController() {
       };
 
     controller.editItem = function(item, taskEdit){
-      console.log(item, taskEdit);
       let target = controller.TodoList.indexOf(item);
-      console.log(target);
       item = controller.TodoList[target];
-      console.log(controller.TodoList[target]);
       item.task = taskEdit;
       item.toggle = !item.toggle;
     };

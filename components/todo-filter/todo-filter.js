@@ -1,48 +1,16 @@
 "use strict";
+function TodoFilter(){
+    const controller = this;
+}
 
-function TodoController() { 
-  const controller = this;
-  controller.TodoList = [
-    {task:"Wake Up!", completed: false},
-    {task:"Grab your brush and put a little makeup!", completed: false},
-    {task:"Hide the scars to fade away the shakeup!", completed: false},
-    {task:"Grab your keys off the table!", completed: false},
-    {task:"Create another fable!", completed: false}
-  ];
+angular.module('TodoApp').component('todoFilter', {
+    template:`
+    <input class="input-field" id="filter" type="text" ng-model="$ctrl.search" placeholder="Filter Your To-Do List">
+        `,
+        controller: TodoList,
+        bindings: {
+            search: "="
+        }
+});
 
-  controller.addTask = function(newTask){  // works
-    if(newTask==="" || newTask===undefined){  // added this so you can't add empty/undefined tasks
-    return;
-    }
-    else{
-    controller.TodoList.push({task: newTask, completed: false});
-    };
-  };
-
-  controller.removeItem = function(item){
-
-      let target = controller.TodoList.indexOf(item);
-      controller.TodoList.splice(target, 1);
-    };
-
-
-    controller.completeTask = function(item){ 
-      item.completed = true;
-      console.log(item);
-      };
-
-    controller.editItem = function(item, taskEdit){
-      console.log(item, taskEdit);
-      let target = controller.TodoList.indexOf(item);
-      console.log(target);
-      item = controller.TodoList[target];
-      console.log(controller.TodoList[target]);
-      item.task = taskEdit;
-      item.toggle = !item.toggle;
-    };
-
-};
-
-angular
-  .module("TodoApp")
-  .controller("TodoController", TodoController);
+// bindings bind to the controller, use $ctlr.______

@@ -7,7 +7,7 @@ angular.module('TodoApp').component('todoFilter', {
     template:`
     <input class="input-field" id="filter" type="text" ng-model="$ctrl.search" placeholder="Filter Your To-Do List">
         `,
-        controller: TodoList,
+        controller: TodoFilter,
         bindings: {
             search: "="
         }

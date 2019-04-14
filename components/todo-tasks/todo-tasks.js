@@ -2,22 +2,6 @@
 function TodoTasks(){
     const controller = this;
 
-    controller.removeItem = function(item){
-      let target = controller.TodoList.indexOf(item);
-      controller.TodoList.splice(target, 1);
-    };
-
-
-    controller.completeTask = function(item){ 
-      item.completed = true;
-      };
-
-    controller.editItem = function(item, taskEdit){
-      let target = controller.TodoList.indexOf(item);
-      item = controller.TodoList[target];
-      item.task = taskEdit;
-      item.toggle = !item.toggle;
-    };
 }
 
 angular.module('TodoApp').component('todoTasks', {
@@ -42,6 +26,9 @@ angular.module('TodoApp').component('todoTasks', {
         bindings: {
           todoList: "<", // sends the todoList to the children, 1 way
           search: "<",  // works, 1 way binding bc the list shouldn't affect the search field.
-          newTask: "<"
+          // newTask: "<"
+          removeItem: "&",
+          completeTask: "&",
+          editItem: "&"
       }
 });

@@ -49,7 +49,7 @@ angular.module('TodoApp').component('todoList', {
       <h2 id="h1">would you kindly...</h2>
       <todo-filter search="$ctrl.search"></todo-filter>
       <todo-tasks add-task="$ctrl.addTask" search="$ctrl.search" todo-list="$ctrl.TodoList"></todo-tasks>
-      <todo-add new-task="$ctrl.newTask"></todo-add>
+      <todo-add add-task="$ctrl.addTask"></todo-add>
     </div>
     </main>
         `,

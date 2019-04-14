@@ -57,4 +57,4 @@ angular.module('TodoApp').component('todoList', {
         // no bindings in parent, only pass as attribute
 });
 
-// linked both search="$ctrl.search in the parent template
+// linked both search="$ctrl.search" in the parent template

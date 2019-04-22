@@ -23,12 +23,11 @@ angular.module('TodoApp').component('todoTasks', {
       <div id="plexi-glass" ng-if="item.toggle"></div>
     </li>
   </ul>        `,
-        controller: TodoList,
+        controller: TodoTasks,
         bindings: {
           todoList: "<", // sends the todoList to the children, 1 way
           search: "<",  // works, 1 way binding bc the list shouldn't affect the search field.
-          // newTask: "<"
-          removeItem: "&",
+          removeItem: "&", // functions are bound, but the parameters are undefined...
           completeTask: "&",
           editItem: "&"
       }

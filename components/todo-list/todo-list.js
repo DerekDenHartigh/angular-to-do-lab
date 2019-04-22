@@ -2,7 +2,7 @@
 function TodoList(){
     const controller = this;
     // let newTask, search, removeItem, completeTask, editItem, addTask;
-  controller.TodoList = [
+  controller.todoList = [
     {task:"Wake Up!", completed: false},
     {task:"Grab your brush and put a little makeup!", completed: false},
     {task:"Hide the scars to fade away the shakeup!", completed: false},
@@ -16,7 +16,7 @@ function TodoList(){
     return;
     }
     else{
-    controller.TodoList.push({task: newTask, completed: false});
+    controller.todoList.push({task: newTask, completed: false});
     console.log(newTask);
     };
   };
@@ -24,8 +24,8 @@ function TodoList(){
 
   controller.removeItem = function(item){
     console.log(item);  // item is returning undefined
-    let target = controller.TodoList.indexOf(item);
-    controller.TodoList.splice(target, 1);
+    let target = controller.todoList.indexOf(item);
+    controller.todoList.splice(target, 1);
   };
 
 
@@ -34,8 +34,8 @@ function TodoList(){
     };
 
   controller.editItem = function(item, taskEdit){
-    let target = controller.TodoList.indexOf(item);
-    item = controller.TodoList[target];
+    let target = controller.todoList.indexOf(item);
+    item = controller.todoList[target];
     item.task = taskEdit;
     item.toggle = !item.toggle;
   };
@@ -49,7 +49,7 @@ angular.module('TodoApp').component('todoList', {
       <h1 id="h1">Honey-Do List:</h1>
       <h2 id="h1">would you kindly...</h2>
       <todo-filter search="$ctrl.search"></todo-filter>
-      <todo-tasks remove-item="$ctrl.removeItem(item)" complete-task="$ctrl.completeTask(item)" edit-item="$ctrl.editItem(item, taskEdit)" add-task="$ctrl.addTask(newTask)" search="$ctrl.search" todo-list="$ctrl.TodoList"></todo-tasks>
+      <todo-tasks remove-item="$ctrl.removeItem(item)" complete-task="$ctrl.completeTask(item)" edit-item="$ctrl.editItem(item, taskEdit)" add-task="$ctrl.addTask(newTask)" search="$ctrl.search" todo-list="$ctrl.todoList"></todo-tasks>
       <todo-add add-task="$ctrl.addTask"></todo-add>
     </div>
     </main>

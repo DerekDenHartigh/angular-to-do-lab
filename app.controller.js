@@ -20,50 +20,20 @@ function TodoController() {
   };
 
   controller.removeItem = function(item){
-    // 1st attempt - this only removes the first item in the array
-      // controller.TodoList.splice(item, 1); 
 
-    // 2nd attempt - also only removes 1st array item..
-      // let elementPos = controller.TodoList.map(function(item) {return item.task; }).indexOf(task);
-      // let objectFound = controller.TodoList[elementPos];
-      // controller.TodoList.splice(objectFound, 1);
-
-    // 3rd attempt - only removes the last array item...
-        // let taskFinder = function () {
-        //   return task === controller.TodoList.task;
-        // };
-        // let arrLocation = controller.TodoList.findIndex(taskFinder);
-        // controller.TodoList.splice(arrLocation,1);
-    //4th time's a charm?
-      // console.log(item);
-      // let currentTask = item.task;
-      // console.log(currentTask)
-      // let target = controller.TodoList.indexOf(currentTask);
-      // console.log(target);
       let target = controller.TodoList.indexOf(item);
       controller.TodoList.splice(target, 1);
-      // return controller.TodoList;
     };
 
-    /*
-      Alex said that using an ng-if on the list item is a way to remove it as well, but does that affect the array? or just comment out the html?
-    */
 
     controller.completeTask = function(item){ 
       item.completed = true;
       console.log(item);
       };
 
-    // controller.toggleEdit = (item)=>{
-
-    // };
-
     controller.editItem = function(item, taskEdit){
-      console.log(item, taskEdit);
       let target = controller.TodoList.indexOf(item);
-      console.log(target);
       item = controller.TodoList[target];
-      console.log(controller.TodoList[target]);
       item.task = taskEdit;
       item.toggle = !item.toggle;
     };

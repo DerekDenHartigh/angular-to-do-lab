@@ -1,2 +1,2 @@
 "use strict";
-angular.module("TodoApp", []);
+angular.module("TodoApp", ["ngRoute"]);
